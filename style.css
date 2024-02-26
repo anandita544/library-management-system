@@ -1,0 +1,110 @@
+body {
+    background-image: url(HD-wallpaper-library-interior-book-shelves-read-study-ancient-manuscript-books-book-interior-studying-book-shelf-reading-library.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.main {
+
+
+    border-radius: 10px;
+    background: -moz-linear-gradient(brown, #ffae42);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    padding: 40px;
+    border: 5px solid black;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+
+}
+
+.style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+
+}
+
+#form1 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+
+}
+
+.table1 {
+    display: flex;
+    border-radius: 10px;
+    background: -moz-linear-gradient(brown, #ffae42);
+    padding: 40px;
+    margin: 40px;
+    width: 75%;
+    justify-content: center;
+    align-items: start;
+    border: 5px solid black;
+}
+
+tr {
+    display: flex;
+    gap: 80px;
+
+
+
+
+}
+
+.style2 {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.section2 {
+    width: 1000px;
+    background: -moz-linear-gradient(brown, #ffae42);
+    height: 50vh;
+    padding: 50px;
+    margin: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    border: 5px solid black;
+
+}
+
+button {
+    width: 80px;
+    text-align: center;
+
+}
+
+td {
+    margin: 20px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.class1 {
+    margin-left: 45px;
+}
+
+#button {
+    margin-left: 38px;
+}
