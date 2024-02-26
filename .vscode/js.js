@@ -1,31 +1,45 @@
-let library = [];
+let library = JSON.parse(localStorage.getItem('library')) || [];
 const form = document.querySelector('form');
 const table = document.querySelector('.table');
 
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const bookId = document.querySelector('#id').value;
-    const title = document.querySelector('#title').value;
-    const author = document.querySelector('#author').value;
-    library.push(`${bookId}, ${title}, ${author}`);
-    addBook(bookId, title, author);
-});
+
+function saveLibraryToLocalStorage() {
+    localStorage.setItem('library', JSON.stringify(library));
+}
+
 
 function addBook(bookId, title, author) {
+    library.push({ bookId, title, author });
+    saveLibraryToLocalStorage();
     const tr = document.createElement('tr');
     tr.innerHTML = `
         <td class="row">${bookId}</td>
         <td class="row">${title}</td>
         <td class="row">${author}</td>
         <td><button class="action-btn borrow-btn" data-state="available">Borrow</button></td>
-        <td class="delete"><button>DELETE</button></td>
+        
     `;
     tr.setAttribute('id', bookId);
 
     table.appendChild(tr);
-    alert("BOOK ADDED")
+
 }
 
+
+window.onload = function () {
+    library.forEach(book => {
+        addBook(book.bookId, book.title, book.author);
+    });
+}
+
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const bookId = document.querySelector('#id').value;
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    addBook(bookId, title, author);
+});
 const form1 = document.querySelector('#form1');
 
 form1.addEventListener('submit', function (e) {
@@ -58,6 +72,8 @@ table.addEventListener('click', function (event) {
     }
 });
 
+
+// Function to borrow a book
 function borrowBook(button) {
     alert("BOOK BORROWED");
     const row = button.closest('tr');
@@ -67,6 +83,7 @@ function borrowBook(button) {
 
 }
 
+
 function returnBook(button) {
     alert("BOOK RETURNED");
     const row = button.closest('tr');
@@ -75,9 +92,4 @@ function returnBook(button) {
     button.setAttribute('data-state', 'available');
 
 }
-table.addEventListener('click', function (event) {
-    const target = event.target;
-    if (target.classList.contains('delete')) {
-        removeChild();
-    }
-});
+
